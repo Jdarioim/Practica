@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HeroesService, Heroes } from 'src/app/services/heroes.service';
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/services/user.service';
 
 
 @Component({
@@ -12,7 +13,7 @@ import { Router } from '@angular/router';
 
 
 
-export class HeroesComponent {
+export class HeroesComponent implements OnInit{
   heroes:any[]=[];
   
 
@@ -21,7 +22,7 @@ export class HeroesComponent {
     console.log(this.heroes);
   }
 
-  constructor(private _heroesService:HeroesService, private Router:Router){
+  constructor(private _heroesService:HeroesService, private userService: UserService, private Router:Router){
     
   }
   verHeroe(idx: number){
@@ -29,5 +30,12 @@ export class HeroesComponent {
     this.Router.navigate(['/heroe', idx]);
    }
 
-   
+   onClick() {
+    this.userService.logout()
+      .then(() => {
+        this.Router.navigate(['/register']);
+      })
+      .catch(error => console.log(error));
+  }
+
 }

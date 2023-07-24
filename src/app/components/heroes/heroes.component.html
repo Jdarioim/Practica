@@ -1,18 +1,37 @@
-<h1>Heroes <small>Marvel DC</small></h1>
-<div class="col animated fadeIn fast" *ngFor="let heroe of heroes; let i = index">
-    <div class="card mb-3" style="max-width: 540px;">
-        <div class="row g-0">
-            <div class="col-md-4">
-                <img [src]="heroe.img" class="img-fluid rounded-start" alt="...">
-            </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                    <h5 class="card-title">{{heroe.nombre}}</h5>{{heroe.bio}}
-                    <p class="card-text"></p>
-                    <p class="card-text"><small class="text-body-secondary">{{heroe.aparicion}}</small></p>
-                    <button (click)="verHeroe(i)" type="button" class="btn btn-warning">Saber más</button>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Título de tu página</title>
+    <link rel="stylesheet" href="C:\Users\Darío\Practica\src\styles.css" type="text/css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Heroes <small>Marvel DC</small></h1>
+        <div class="d-flex justify-content-between align-items-center mt-3">
+            <button (click)="onClick()" class="btn btn-outline-danger">Logout</button>
+        </div>
+        <div class="heroes-container">
+            <div class="col animated fadeIn fast" *ngFor="let heroe of heroes; let i = index">
+                <div class="card mb-3">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img [src]="heroe.img" class="img-fluid rounded-start" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">{{heroe.nombre}}</h5>
+                                <p class="card-text">{{heroe.bio}}</p>
+                                <p class="card-text"><small class="text-body-secondary">{{heroe.aparicion}}</small></p>
+                                <button (click)="verHeroe(i)" type="button" class="btn btn-warning">Saber más</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</body>
+
+</html>
